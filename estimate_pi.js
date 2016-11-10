@@ -111,7 +111,7 @@ const runTrials = () => {
   $('#run-trials').html("Throw More Darts");
 
 
-  console.log("hits", hitCounter, "total", totalCounter, "%", hitCounter/totalCounter*100, "pi", hitCounter/totalCounter*4, "error", (hitCounter/totalCounter*4 - Math.PI) / Math.PI * 100);
+  // console.log("hits", hitCounter, "total", totalCounter, "%", hitCounter/totalCounter*100, "pi", hitCounter/totalCounter*4, "error", (hitCounter/totalCounter*4 - Math.PI) / Math.PI * 100);
 }
 
 $('#reset').on("click", reset);

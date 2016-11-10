@@ -8,7 +8,7 @@ p {
   margin: 5px 0;
 }
 
-label {
+label, a {
   font-size: 14px;
 }
 
@@ -24,6 +24,10 @@ h1 {
   text-align: center;
 }
 
+button {
+  margin: 0 3px;
+}
+
 .data {
   clear: both;
   display: block;
@@ -33,4 +37,23 @@ h1 {
 .sub-data {
   float: left;
   width: 180px;
+}
+
+a {
+  text-decoration: none;
+  color: grey;
+  margin-right: 30px;
+}
+
+a:visited {
+  color: grey;
+}
+
+a:hover {
+  color: blue;
+  cursor: pointer;
+}
+
+.links {
+  margin-top: 100px;
 }
