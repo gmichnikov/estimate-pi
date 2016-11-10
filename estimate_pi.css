@@ -7,3 +7,30 @@ p {
   font-size: 14px;
   margin: 5px 0;
 }
+
+label {
+  font-size: 14px;
+}
+
+.inputs {
+  margin: 10px 0;
+}
+
+input {
+  width: 75px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.data {
+  clear: both;
+  display: block;
+  content: "";
+}
+
+.sub-data {
+  float: left;
+  width: 180px;
+}

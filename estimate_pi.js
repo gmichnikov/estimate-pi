@@ -11,6 +11,8 @@ const reset = () => {
   $('#percent-hit').text(0);
   $('#estimated-pi').text("?");
   $('#estimation-error').text("?");
+  $('#run-trials').html("Throw Darts");
+
 
   ctx.clearRect(0,0,canvas.width,canvas.height)
 
@@ -83,6 +85,7 @@ const reset = () => {
 
 const runTrials = () => {
   let numTrials = parseInt($('#num-trials').val());
+  if (isNaN(numTrials)) numTrials = 1000;
   totalCounter += numTrials;
 
   for (var i = 0; i < numTrials; i++) {
@@ -105,6 +108,7 @@ const runTrials = () => {
   $('#percent-hit').text(Math.round(hitCounter/totalCounter*100*100)/100);
   $('#estimated-pi').text(Math.round(hitCounter/totalCounter*4*1000000)/1000000);
   $('#estimation-error').text(Math.round((hitCounter/totalCounter*4 - Math.PI) / Math.PI * 100 * 1000)/1000);
+  $('#run-trials').html("Throw More Darts");
 
 
   console.log("hits", hitCounter, "total", totalCounter, "%", hitCounter/totalCounter*100, "pi", hitCounter/totalCounter*4, "error", (hitCounter/totalCounter*4 - Math.PI) / Math.PI * 100);
@@ -114,4 +118,4 @@ $('#reset').on("click", reset);
 $('#run-trials').on("click", runTrials);
 
 reset();
-runTrials();
+// runTrials();

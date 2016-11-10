@@ -3,7 +3,7 @@
 
   <head>
     <meta charset="utf-8">
-    <title>Estimate Pi</title>
+    <title>Estimate π</title>
 
     <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -14,17 +14,25 @@
 
   <body>
     <div class="container">
+      <h1>Estimate π with Darts!</h1>
       <canvas id="myCanvas" width="360" height="360"></canvas>
-      <br>
-      <input type="text" id="num-trials" value="5000" />
-      <button type="button" id="run-trials">Run Trials</button>
-      <button type="button" id="reset">Reset</button>
-      <p>Darts Thrown: <span id="darts-thrown"></span></p>
-      <p>Darts Hit: <span id="darts-hit"></span></p>
-      <p>Percent Hit: <span id="percent-hit"></span>%</p>
-      <p>Estimated Pi: <span id="estimated-pi"></span></p>
-      <p>Actual Pi: <span id="actual-pi">3.14159...</span></p>
-      <p>Estimation Error: <span id="estimation-error"></span>%</p>
+      <div class="inputs">
+        <label># Darts: <input type="text" id="num-trials" value="" placeholder="How many?"/></label>
+        <button type="button" id="run-trials">Throw Darts</button>
+        <button type="button" id="reset">Clear Dartboard</button>
+      </div>
+      <div class="data">
+        <div class="sub-data">
+          <p>Darts Thrown: <span id="darts-thrown"></span></p>
+          <p>Darts Hit: <span id="darts-hit"></span></p>
+          <p>Percent Hit: <span id="percent-hit"></span>%</p>
+        </div>
+        <div class="sub-data">
+          <p>Estimated π: <span id="estimated-pi"></span></p>
+          <p>Actual π: <span id="actual-pi">3.14159...</span></p>
+          <p>Estimation Error: <span id="estimation-error"></span>%</p>
+        </div>
+      </div>
       <br>
     </div>
   </body>
