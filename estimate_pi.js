@@ -1,7 +1,17 @@
-var canvas = document.getElementById("myCanvas");
-var ctx = canvas.getContext("2d");
+const canvas = document.getElementById("myCanvas");
+const ctx = canvas.getContext("2d");
+let hitCounter = 0;
+let totalCounter = 0;
 
 const reset = () => {
+  hitCounter = 0;
+  totalCounter = 0;
+  $('#darts-thrown').text(0);
+  $('#darts-hit').text(0);
+  $('#percent-hit').text(0);
+  $('#estimated-pi').text("?");
+  $('#estimation-error').text("?");
+
   ctx.clearRect(0,0,canvas.width,canvas.height)
 
   ctx.beginPath();
@@ -72,8 +82,8 @@ const reset = () => {
 }
 
 const runTrials = () => {
-  let hitCounter = 0;
-  let numTrials = $('#num-trials').val();
+  let numTrials = parseInt($('#num-trials').val());
+  totalCounter += numTrials;
 
   for (var i = 0; i < numTrials; i++) {
     let randX = Math.random() * canvas.width;
@@ -90,7 +100,14 @@ const runTrials = () => {
     ctx.fill();
   }
 
-  console.log("hits", hitCounter, "total", numTrials, "%", hitCounter/numTrials*100, "pi", hitCounter/numTrials*4, "error", (Math.PI - hitCounter/numTrials*4) / Math.PI * 100);
+  $('#darts-thrown').text(totalCounter);
+  $('#darts-hit').text(hitCounter);
+  $('#percent-hit').text(Math.round(hitCounter/totalCounter*100*100)/100);
+  $('#estimated-pi').text(Math.round(hitCounter/totalCounter*4*1000000)/1000000);
+  $('#estimation-error').text(Math.round((hitCounter/totalCounter*4 - Math.PI) / Math.PI * 100 * 1000)/1000);
+
+
+  console.log("hits", hitCounter, "total", totalCounter, "%", hitCounter/totalCounter*100, "pi", hitCounter/totalCounter*4, "error", (hitCounter/totalCounter*4 - Math.PI) / Math.PI * 100);
 }
 
 $('#reset').on("click", reset);

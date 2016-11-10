@@ -1,0 +1,9 @@
+.container {
+  margin: 0 auto;
+  width: 360px;
+}
+
+p {
+  font-size: 14px;
+  margin: 5px 0;
+}
